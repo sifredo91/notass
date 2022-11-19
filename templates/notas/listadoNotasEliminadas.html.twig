@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado de Notas Eliminadas{% endblock %}
+
+{% block body %}
+    <h1>Listado de Notas Eliminadas</h1>
+    <br>
+    <a class="btn btn-primary" href="{{ path('nota.crear',{id:1}) }}">Crear Nota</a>
+    <table class="table mt-4" id="myTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Tags</th>
+            <th>Fecha Eliminada</th>
+            <th>Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for nota in notas %}
+            <tr>
+                <td></td>
+                <td>{{ nota.id }}</td>
+                <td>{{ nota.titulo }}</td>
+                <td>{{ nota.descripcion }}</td>
+                <td>{% for tag in nota.tags %}
+                    {{ tag.titulo }}
+                    {% endfor %}
+                </td>
+                <td>{{ nota.fechaeliminada | date }}</td>
+                <td><a class="btn btn-success" href="{{ path('nota.rescatar',{id:nota.id}) }}">Restaurar</a></td>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    
+{% endblock %}

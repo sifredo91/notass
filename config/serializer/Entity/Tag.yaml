@@ -1,0 +1,6 @@
+App\Entity\Tag:
+  attributes:
+    id:
+      groups: ['nota']
+    titulo:
+      groups: ['nota']

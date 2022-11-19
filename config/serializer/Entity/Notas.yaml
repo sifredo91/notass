@@ -1,0 +1,14 @@
+App\Entity\Nota:
+    attributes:
+        id:
+            groups: ['nota']
+        titulo:
+            groups: ['nota']
+        descripcion:
+            groups: ['nota']
+        publica:
+            groups: ['nota']
+        tags:
+            groups: ['nota']
+        fechaeliminada:
+            groups: ['eliminada']

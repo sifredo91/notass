@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+{% block sidebar %}
+{% endblock %}
+{% block body %}
+    {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+        <button class="btn btn-block btn-success" type="submit">{{ button|default('Registrarme') }}</button>
+    {{ form_end(form) }}
+{% endblock %}

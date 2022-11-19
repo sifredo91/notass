@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado Notas{% endblock %}
+
+{% block body %}
+    <h1>Listado de Notas</h1>
+    <br>
+    <table class="table mt-4" id="myTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Tags</th>
+            <th>Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for nota in notas %}
+            <tr>
+                <td>{{ nota.id }}</td>
+                <td>{{ nota.titulo }}</td>
+                <td>{{ nota.descripcion }}</td>
+                <td>{% for tag in nota.tags %}
+                    {{ tag.titulo }}
+                    {% endfor %}
+                </td>
+                <td>{% if id == nota.user.id %}
+                    <a class="btn btn-success" href="{{ path('nota.editar',{id:nota.id}) }}">Editar</a>
+                    <a class="btn btn-danger" href="{{ path('nota.eliminar',{id:nota.id}) }}">Eliminar</a>
+                    {% endif %}
+                </td>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear Nota{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Crear Nota</h1>
+    <br>
+    {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+    <div class="col-sm-8 col-sm-offset-2" id="exp_list">
+    {% for row in form.tags %}
+        <div class="panel panel-warning">
+            <div class="panel-heading"></div>
+            <div class="panel-body">
+                {{ form_row(row) }}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <button class="btn btn-block btn-success" type="submit">{{ button|default('Crear Nota') }}</button>
+    {{ form_end(form) }}
+{% endblock %}

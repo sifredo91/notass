@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notas Públicas de Otros Usuarios{% endblock %}
+
+{% block body %}
+    <h1>Notas Públicas de Otros Usuarios</h1>
+    <br>
+    <table class="table mt-4" id="myTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Tags</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for nota in notas %}
+            <tr>
+                <td>{{ nota.id }}</td>
+                <td>{{ nota.titulo }}</td>
+                <td>{{ nota.descripcion }}</td>
+                <td>{% for tag in nota.tags %}
+                    {{ tag.titulo }}
+                    {% endfor %}
+                </td>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    
+{% endblock %}
